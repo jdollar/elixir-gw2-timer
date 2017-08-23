@@ -10,10 +10,31 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 
+boss_time_objects = [
+    %{
+        boss: %Gw2timer.WorldBoss{
+            name: "Shadow Behemoth",
+            zone: "Queensdale"
+        },
+        event_time: %Gw2timer.EventTime{time: Ecto.Time.cast! ({1,45,0})}
+    }
+]
+
 defmodule Gw2timer.DatabaseSeeder do
     alias Gw2timer.Repo
     alias Gw2timer.WorldBoss
     alias Gw2timer.EventTime
+
+    def insert_world_boss_full([boss_time_object | tail]) do
+        world_boss = Repo.insert! boss_time_object[:boss]
+        event_time = Repo.insert! boss_time_object[:event_time]
+        insert_world_boss_event_time_join(world_boss, event_time)
+        insert_world_boss_full(tail)
+    end
+
+    def insert_world_boss_full([]) do
+
+    end
 
     def insert_world_boss do
         Repo.insert! %WorldBoss{
@@ -43,6 +64,7 @@ defmodule Gw2timer.DatabaseSeeder do
 end
 
 Gw2timer.DatabaseSeeder.clear
-world_boss = Gw2timer.DatabaseSeeder.insert_world_boss
-event_time = Gw2timer.DatabaseSeeder.insert_event_times
-Gw2timer.DatabaseSeeder.insert_world_boss_event_time_join(world_boss, event_time)
+Gw2timer.DatabaseSeeder.insert_world_boss_full boss_time_objects
+# world_boss = Gw2timer.DatabaseSeeder.insert_world_boss
+# event_time = Gw2timer.DatabaseSeeder.insert_event_times
+# Gw2timer.DatabaseSeeder.insert_world_boss_event_time_join(world_boss, event_time)
