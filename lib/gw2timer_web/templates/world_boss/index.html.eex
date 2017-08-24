@@ -1,0 +1,8 @@
+<div class="jumbotron">
+  <h2><%= gettext "World Bosses!" %></h2>
+  <ul>
+      <%= for world_boss <- @world_bosses do %>
+        <li><label><%= world_boss.name %></label></li>
+      <% end %>
+  </ul>
+</div>

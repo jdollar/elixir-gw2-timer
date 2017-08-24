@@ -5,10 +5,10 @@ defmodule Gw2timer.WorldBoss do
 
 
   schema "worldboss" do
+    belongs_to :zone, Gw2timer.Zone
     many_to_many :event_times, Gw2timer.EventTime, join_through: "world_boss_event_time"
 
     field :name, :string
-    field :zone, :string
 
     timestamps()
   end
@@ -16,7 +16,7 @@ defmodule Gw2timer.WorldBoss do
   @doc false
   def changeset(%WorldBoss{} = world_boss, attrs) do
     world_boss
-    |> cast(attrs, [:name, :zone])
-    |> validate_required([:name, :zone])
+    |> cast(attrs, [:name])
+    |> validate_required([:name])
   end
 end
