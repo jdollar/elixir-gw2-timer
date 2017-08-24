@@ -17,11 +17,11 @@ defmodule Gw2timerWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    get "/worldbosses", WorldBossController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Gw2timerWeb do
-  #   pipe_through :api
-  # end
+  scope "/worldbosses", Gw2timerWeb do
+      pipe_through :browser
+
+      get "/", WorldBossController, :index
+  end
 end

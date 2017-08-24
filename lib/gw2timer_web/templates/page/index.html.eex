@@ -1,4 +1,5 @@
 <div class="jumbotron">
+    <h2><%= Gettext.get_locale() %></h2>
   <h2><%= gettext "Welcome to %{name}!", name: "Gw2Timer" %></h2>
   <ul>
       <li><a href="/worldbosses">World Bosses</a></li>
