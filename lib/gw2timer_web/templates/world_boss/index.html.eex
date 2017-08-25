@@ -1,8 +1,17 @@
 <div class="jumbotron">
   <h2><%= gettext "World Bosses!" %></h2>
-  <ul>
-      <%= for world_boss <- @world_bosses do %>
-        <li><label><%= world_boss.name %></label></li>
-      <% end %>
-  </ul>
+  <%= for world_boss <- @world_bosses do %>
+      <div class="columns is-gapless">
+          <div class="column is-size-3">
+              <%= world_boss.name %>
+          </div>
+          <div class="column is-one-quarter">
+              <%= for event_time <- world_boss.event_times do %>
+                  <div>
+                      <label><%= format_event_time event_time.time %></label>
+                  </div>
+              <% end %>
+          </div>
+      </div>
+  <% end %>
 </div>
