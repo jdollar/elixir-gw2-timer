@@ -23,5 +23,6 @@ defmodule Gw2timerWeb.Router do
       pipe_through :browser
 
       get "/", WorldBossController, :index
+      get "/:id", WorldBossController, :show
   end
 end

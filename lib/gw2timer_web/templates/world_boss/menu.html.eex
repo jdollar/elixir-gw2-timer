@@ -1,0 +1,9 @@
+
+<nav class="tabs is-boxed is-fullwidth">
+    <div class="container">
+        <ul>
+            <li class="is-active"><a>Table</a></li>
+            <li><a>Timer</a></li>
+        </ul>
+    </div>
+</nav>

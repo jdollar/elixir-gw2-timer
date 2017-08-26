@@ -1,3 +1,8 @@
-## From Ecto.Changeset.cast/4
+msgid "Welcome to Gw2Timer!"
+msgstr ""
+
+msgid "World Bosses"
+msgstr ""
+
 msgid "World Bosses!"
 msgstr ""

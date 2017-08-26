@@ -1,6 +1,11 @@
-<div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}!", name: "Gw2Timer" %></h2>
-  <ul>
-      <li><a href="/worldbosses">World Bosses</a></li>
-  </ul>
+<div class="tile is-ancestor is-offset-one-quarter">
+    <div class="tile is-3"></div>
+    <div class="tile is-6 is-parent">
+        <div class="tile is-vertical">
+            <div class="tile">
+                <a href="/worldbosses" class="title button is-fullwidth is-primary"><%= gettext "World Bosses" %></a>
+            </div>
+        </div>
+    </div>
+    <div class="tile is-3"></div>
 </div>
