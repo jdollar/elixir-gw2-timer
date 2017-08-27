@@ -12,8 +12,6 @@ defmodule Gw2timerWeb.WorldBossController do
                                      order_by: [asc: world_bosses.name],
                                      preload: [:zone, :event_times]
 
-    IO.inspect world_bosses
-
     render conn, "index.html", world_bosses: world_bosses
   end
 
@@ -24,6 +22,7 @@ defmodule Gw2timerWeb.WorldBossController do
                            where: world_boss.id == ^world_boss_id,
                            group_by: world_boss.id,
                            preload: [:zone, :event_times]
-     render conn, "show.html", world_boss: world_boss
+
+     render conn, "show.html", world_boss: world_boss, show_header: true
   end
 end

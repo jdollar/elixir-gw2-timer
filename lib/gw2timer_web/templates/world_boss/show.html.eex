@@ -1,21 +1,20 @@
+<%= if assigns[:show_header] do %>
+    <%= render "table_header.html" %>
+<% end %>
 
 <div class="columns is-gapless">
-    <div class="column notification is-dark">
-        <label>Name</label>
-    </div>
-    <div class="column notification is-dark is-one-quarter">
-        <label>Event Time</label>
-    </div>
-</div>
-
-<div class="columns is-gapless">
-    <div class="column notification is-info">
+    <div class="column is-one-third notification is-info">
         <a class="title button is-info" href="/worldbosses/<%=@world_boss.id%>"><%= @world_boss.name %></a>
     </div>
-    <div class="column is-one-quarter">
-        <%= for event_time <- @world_boss.event_times do %>
+    <div class="column notification is-primary">
+        <div class="notification is-primary">
+            <label><%= @world_boss.zone.name %></label>
+        </div>
+    </div>
+    <div class="column is-primary">
+        <%= for event_time <- formatted_event_times(@world_boss.event_times) do %>
             <div class="notification is-primary">
-                <label><%= format_event_time event_time.time %></label>
+                <label><%= event_time %></label>
             </div>
         <% end %>
     </div>

@@ -1,5 +1,6 @@
 <div class="container">
-  <%= for world_boss <- @world_bosses do %>
+  <%= render @view_module, "table_header.html", show_header: true %>
+  <%= for world_boss <- @world_bosses do %>    
     <%= render @view_module, "show.html", world_boss: world_boss %>
   <% end %>
 </div>
