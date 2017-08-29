@@ -5,9 +5,10 @@ defmodule Gw2timer.EventTime do
 
 
   schema "eventtime" do
-    field :time, :time
+      many_to_many :world_bosses, Gw2timer.WorldBoss, join_through: "world_boss_event_time"
+      field :time, :time
 
-    timestamps()
+      timestamps()
   end
 
   @doc false

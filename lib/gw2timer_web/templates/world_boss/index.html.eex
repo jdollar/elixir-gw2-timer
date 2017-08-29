@@ -1,6 +1,20 @@
 <div class="container">
-  <%= render @view_module, "table_header.html", show_header: true %>
-  <%= for world_boss <- @world_bosses do %>    
-    <%= render @view_module, "show.html", world_boss: world_boss %>
-  <% end %>
+    <table class="table is-fullwidth">
+        <thead>
+            <th>Event Time</th>
+            <th>Name</th>
+            <th>Zone</th>
+        </thead>
+        <tbody>
+            <%= for world_boss_event <- @world_boss_events do %>
+                <%= for world_boss <- world_boss_event.world_bosses do %>
+                    <tr>
+                        <td><label><%= format_event_time world_boss_event.time %></label></td>
+                        <td><label><%= world_boss.name %></label></td>
+                        <td><label><%= world_boss.zone.name %></label></td>
+                    </tr>
+                <% end %>
+            <% end %>
+        </tbody>
+    </table>
 </div>

@@ -2,17 +2,17 @@ defmodule Gw2timerWeb.WorldBossController do
   use Gw2timerWeb, :controller
   import Ecto.Query
   alias Gw2timer.WorldBoss
+  alias Gw2timer.EventTime
   alias Gw2timer.Repo
 
   def index(conn, _params) do
-    world_bosses = Repo.all from world_bosses in WorldBoss,
-                                     left_join: zones in assoc(world_bosses, :zone),
-                                     left_join: event_times in assoc(world_bosses, :event_times),
-                                     group_by: world_bosses.id,
-                                     order_by: [asc: world_bosses.name],
-                                     preload: [:zone, :event_times]
+      world_boss_events = Repo.all from event_time in EventTime,
+                                    inner_join: world_bosses in assoc(event_time, :world_bosses),
+                                    inner_join: zones in assoc(world_bosses, :zone),
+                                    order_by: [asc: event_time.time],
+                                    preload: [world_bosses: {world_bosses, :zone}]
 
-    render conn, "index.html", world_bosses: world_bosses
+      render conn, "index.html", world_boss_events: world_boss_events
   end
 
   def show(conn, %{"id" => world_boss_id}) do
