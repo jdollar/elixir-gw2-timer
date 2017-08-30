@@ -17,12 +17,9 @@ defmodule Gw2timerWeb.WorldBossController do
 
   def show(conn, %{"id" => world_boss_id}) do
      world_boss = Repo.one from world_boss in WorldBoss,
-                           left_join: zones in assoc(world_boss, :zone),
-                           left_join: event_times in assoc(world_boss, :event_times),
                            where: world_boss.id == ^world_boss_id,
-                           group_by: world_boss.id,
                            preload: [:zone, :event_times]
 
-     render conn, "show.html", world_boss: world_boss, show_header: true
+     render conn, "show.html", world_boss: world_boss
   end
 end

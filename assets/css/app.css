@@ -2,3 +2,7 @@
 body {
     margin-top: 0px !important;
 }
+
+.is-padded-top-1 {
+    padding-top: 1%;
+}

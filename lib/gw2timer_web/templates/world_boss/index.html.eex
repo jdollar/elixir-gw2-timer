@@ -8,7 +8,7 @@
         <tbody>
             <%= for world_boss_event <- @world_boss_events do %>
                 <%= for world_boss <- world_boss_event.world_bosses do %>
-                    <tr>
+                    <tr class="link-table-row" data-href="/worldbosses/<%= world_boss.id %>">
                         <td><label><%= format_event_time world_boss_event.time %></label></td>
                         <td><label><%= world_boss.name %></label></td>
                         <td><label><%= world_boss.zone.name %></label></td>

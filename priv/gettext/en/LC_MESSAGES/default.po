@@ -6,3 +6,6 @@ msgstr ""
 
 msgid "World Bosses!"
 msgstr ""
+
+msgid "Event times"
+msgstr ""
