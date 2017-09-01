@@ -4,7 +4,7 @@
     for(let i = 0; i < linkTableRows.length; i++) {
         let linkTableRow = linkTableRows[i]
         linkTableRow.onclick = function() {
-            alert(this.getAttribute('data-href'));
+            window.location = this.getAttribute('data-href')
         }.bind(linkTableRow)
     }
 })()
