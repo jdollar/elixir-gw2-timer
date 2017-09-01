@@ -14,7 +14,7 @@
   </head>
 
   <body>
-    <section class="hero is-medium is-primary is-bold">
+    <section class="hero is-medium is-dark is-bold">
       <div class="hero-head">
         <header class="nav">
           <div class="container">
@@ -32,7 +32,7 @@
             </span>
             <div class="nav-right nav-menu">
               <span class="nav-item">
-                <a href="https://github.com/jdollar/elixir-gw2-timer" class="button is-primary is-inverted">
+                <a href="https://github.com/jdollar/elixir-gw2-timer" class="button is-dark is-inverted">
                   <span class="icon">
                     <i class="fa fa-github"></i>
                   </span>
