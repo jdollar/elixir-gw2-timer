@@ -1,0 +1,5 @@
+<%= for world_boss <- @world_boss_event.world_bosses do %>
+    <label><%= format_event_time @world_boss_event.time %></label>
+    <label><%= world_boss.name %></label>
+    <label><%= world_boss.zone.name %></label>
+<% end %>

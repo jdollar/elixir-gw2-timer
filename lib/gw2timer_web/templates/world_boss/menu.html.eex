@@ -1,9 +1,9 @@
 
 <nav class="tabs is-boxed is-fullwidth">
     <div class="container">
-        <ul>
-            <li class="is-active"><a>Table</a></li>
-            <li><a>Timer</a></li>
+        <ul id="menuList" data-selected-tab="<%= @menuTabValue %>">
+            <li data-tab-value="table"><a href="/worldbosses">Table</a></li>
+            <li data-tab-value="timer"><a href="/worldbosses/timer">Timer</a></li>
         </ul>
     </div>
 </nav>

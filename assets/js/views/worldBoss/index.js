@@ -17,6 +17,14 @@ class WorldbossIndexView extends MainView {
         })
     }
 
+    setupTable() {
+        let worldBossTable = document.getElementById('')
+        let rows = worldBossTable.getElementsByTagName('tr')
+        let firstRow = rows[0]
+        let lastRow = rows[rows.length]
+        firstRow.parentNode.insertAfter
+    }
+
     unmount() {
         super.unmount()
 
